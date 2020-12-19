@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Better1911.Configs
 {
-	public class SharedConfigs : IConfig
+	public abstract class SharedConfigs : IConfig
 	{
 		public ConfigEntry<Color> Recolor { get; set; }
 		public ConfigEntry<float> Roughness { get; set; }
