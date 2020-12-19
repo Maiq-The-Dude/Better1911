@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30608.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveM1911TacRedDot", "RemoveSillyDot\RemoveM1911TacRedDot.csproj", "{686FBDC0-1DE3-4F58-82E1-915CD3AE3FF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Better1911", "Better1911\Better1911.csproj", "{686FBDC0-1DE3-4F58-82E1-915CD3AE3FF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,15 @@
+﻿{
+  "guid": "better1911",
+  "version": "1.0.0",
+  "name": "Better1911",
+  "sourceUrl": "https://github.com/Maiq-The-Dude/RedDotRemoval",
+  "authors": [
+    "M'aiq"
+  ],
+  "dependencies": {
+    "deli.core": "0.2.5"
+  },
+  "runtime": {
+    "Better1911.dll": "assembly"
+  }
+}
