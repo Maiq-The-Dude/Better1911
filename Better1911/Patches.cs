@@ -108,37 +108,40 @@ namespace Better1911
 				}
 
 				// Magazine Materials
-				var cfg = Config.Magazine;
-				if (cfg.CustomMagazineMaterial.Value != MagazineConfig.MagazineMaterial.Default)
+				if (__instance.FireArm.ObjectWrapper.ItemID == "M1911Tactical")
 				{
-					var viz = tf.Find("Viz");
-					if (viz != null)
+					var cfg = Config.Magazine;
+					if (cfg.CustomMagazineMaterial.Value != MagazineConfig.MagazineMaterial.Default)
 					{
-						Material mat;
-						for (int i = 0; i < viz.childCount; i++)
+						var viz = tf.Find("Viz");
+						if (viz != null)
 						{
-							var name = viz.GetChild(i).name.ToUpper();
-							if (name.Contains("MAG") || name.Contains("GEO"))
+							Material mat;
+							for (int i = 0; i < viz.childCount; i++)
 							{
-								mat = viz.GetChild(i).GetComponent<Renderer>().material;							
-
-								switch (cfg.CustomMagazineMaterial.Value)
+								var name = viz.GetChild(i).name.ToUpper();
+								if (name.Contains("MAG") || name.Contains("GEO"))
 								{
-									case (MagazineConfig.MagazineMaterial.Frame):
-										PaintMag(mat, Config.GunCustomization.Frame, obj.ItemID);
-										break;
-									case (MagazineConfig.MagazineMaterial.Slide):
-										PaintMag(mat, Config.GunCustomization.Slide, obj.ItemID);
-										break;
-									default:
-										break;
+									mat = viz.GetChild(i).GetComponent<Renderer>().material;
+
+									switch (cfg.CustomMagazineMaterial.Value)
+									{
+										case (MagazineConfig.MagazineMaterial.Frame):
+											PaintMag(mat, Config.GunCustomization.Frame, obj.ItemID);
+											break;
+										case (MagazineConfig.MagazineMaterial.Slide):
+											PaintMag(mat, Config.GunCustomization.Slide, obj.ItemID);
+											break;
+										default:
+											break;
+									}
+
+									break;
 								}
-								
-								break;
 							}
 						}
 					}
-				}
+				}			
 			}
 		}
 
