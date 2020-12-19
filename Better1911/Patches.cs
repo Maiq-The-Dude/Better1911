@@ -43,7 +43,13 @@ namespace Better1911
 
 					// Glow Sights
 					var glowCfg = Config.GlowSights;
-					if (glowCfg.CustomColor.Value)
+					if (glowCfg.DisableGlowSights.Value)
+					{
+						slideTF.Find("GlowSight (1)").gameObject.SetActive(false);
+						slideTF.Find("GlowSight (2)").gameObject.SetActive(false);
+						slideTF.Find("GlowSight (3)").gameObject.SetActive(false);
+					}
+					else if (glowCfg.CustomColor.Value)
 					{
 						slideTF.Find("GlowSight (1)").GetComponent<Renderer>().material.SetColor("_Color", glowCfg.RearColor.Value);
 						slideTF.Find("GlowSight (2)").GetComponent<Renderer>().material.SetColor("_Color", glowCfg.RearColor.Value);

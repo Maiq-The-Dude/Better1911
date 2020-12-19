@@ -7,7 +7,7 @@ namespace Better1911.Configs
 	{
 		public SlideConfig(string section, ConfigFile config)
 		{
-			Color c = new Color32(0xFF, 0xFF, 0xFF, 0xFF);
+			Color c = new Color32(0x0F, 0x0F, 0x0F, 0xFF);
 			Recolor = config.Bind(section, nameof(Recolor), c, "Color of the slide");
 			Roughness = config.Bind(section, nameof(Roughness), 1f, "Roughness of the material. Decrease for a more mirrored finish.");
 			Metallic = config.Bind(section, nameof(Metallic), 1f, "Metallic value for the material. Decrease for a flatter more polymer look.");
