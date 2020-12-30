@@ -1,8 +1,6 @@
 ﻿using Deli;
 using HarmonyLib;
 using Better1911.Configs;
-using UnityEngine.SceneManagement;
-using BepInEx.Configuration;
 
 namespace Better1911
 {
@@ -12,7 +10,7 @@ namespace Better1911
 
 		public RootConfig Configs { get; }
 
-		private Patches _patches;
+		private readonly Patches _patches;
 
 		public Plugin()
 		{

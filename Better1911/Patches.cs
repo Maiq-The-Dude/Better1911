@@ -2,7 +2,6 @@
 using HarmonyLib;
 using Better1911.Configs;
 using UnityEngine;
-using System;
 using BepInEx.Configuration;
 
 namespace Better1911
@@ -13,7 +12,6 @@ namespace Better1911
 		private static ConfigFile _cfg;
 
 		private const string _tacMagID = "MagazineM1911Tactical";
-		private const string _dilMagID = "MagazineM1911Dillinger";
 
 		public Patches(ConfigFile config)
 		{
