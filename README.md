@@ -2,7 +2,7 @@
 Mod for H3VR to remove the red dot and add numerous cosmetic enhancements to the M1911 Tactical.
 
 ## Features
-All features listed below are optional and configured via `mods/config/better1911.cfg`
+All features listed below are optional and configured via `mods/configs/better1911.cfg`
 - Remove the red dot
 - Fix low capacity magazine positioning
 - Disable glow sights
