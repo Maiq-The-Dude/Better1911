@@ -7,7 +7,7 @@ namespace Better1911
 		float Metallic { get; }
 		float NormalStrength { get; }
 		float Roughness { get; }
-		Color Recolor { get; }
+		Vector4 Recolor { get; }
 		float Specularity { get; }
 	}
 }

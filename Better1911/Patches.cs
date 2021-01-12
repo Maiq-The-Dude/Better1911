@@ -3,6 +3,7 @@ using HarmonyLib;
 using Better1911.Configs;
 using UnityEngine;
 using BepInEx.Configuration;
+using BepInEx.Logging;
 
 namespace Better1911
 {
@@ -10,7 +11,6 @@ namespace Better1911
 	{
 		private static RootConfig Config => Plugin.Instance.Configs;
 		private static ConfigFile _cfg;
-
 		private const string _tacMagID = "MagazineM1911Tactical";
 
 		public Patches(ConfigFile config)
@@ -41,17 +41,31 @@ namespace Better1911
 
 					// Glow Sights
 					var glowCfg = Config.GlowSights;
+
+					var glowsights = new Transform[] { slideTF.Find("GlowSight (1)"), slideTF.Find("GlowSight (2)"), slideTF.Find("GlowSight (3)") };
 					if (glowCfg.DisableGlowSights.Value)
 					{
-						slideTF.Find("GlowSight (1)").gameObject.SetActive(false);
-						slideTF.Find("GlowSight (2)").gameObject.SetActive(false);
-						slideTF.Find("GlowSight (3)").gameObject.SetActive(false);
+						foreach (var sight in glowsights)
+						{
+							sight.gameObject.SetActive(false);
+						}
 					}
 					else if (glowCfg.CustomColor.Value)
 					{
-						slideTF.Find("GlowSight (1)").GetComponent<Renderer>().material.SetColor("_Color", glowCfg.RearColor.Value);
-						slideTF.Find("GlowSight (2)").GetComponent<Renderer>().material.SetColor("_Color", glowCfg.RearColor.Value);
-						slideTF.Find("GlowSight (3)").GetComponent<Renderer>().material.SetColor("_Color", glowCfg.FrontColor.Value);
+						for(var i = 0; i < glowsights.Length; i++)
+						{
+							var mat = glowsights[i].GetComponent<Renderer>().material;
+							if(i == glowsights.Length-1)
+							{
+								mat.SetColor("_Color", Recolor(glowCfg.FrontColor.Value));
+								mat.SetColor("_EmissionColor", Recolor(glowCfg.FrontColor.Value, glowCfg.Intensity.Value));		
+							}
+							else
+							{
+								mat.SetColor("_Color", Recolor(glowCfg.RearColor.Value));
+								mat.SetColor("_EmissionColor", Recolor(glowCfg.RearColor.Value, glowCfg.Intensity.Value));
+							}
+						}
 					}
 			
 					// Gun Materials
@@ -115,7 +129,7 @@ namespace Better1911
 				if (__instance.FireArm.ObjectWrapper.ItemID == "M1911Tactical")
 				{
 					var cfg = Config.Magazine;
-					if (cfg.CustomMagazineMaterial.Value != MagazineConfig.MagazineMaterial.Default)
+					if (Config.GunCustomization.CustomMaterials.Value && cfg.CustomMagazineMaterial.Value != MagazineConfig.MagazineMaterial.Default)
 					{
 						var viz = tf.Find("Viz");
 						if (viz != null)
@@ -175,7 +189,7 @@ namespace Better1911
 			{
 				mat.SetFloat("_Metal", config.Metallic);
 				mat.SetFloat("_BumpScale", config.NormalStrength);
-				mat.SetColor("_Color", config.Recolor);
+				mat.SetColor("_Color", Recolor(config.Recolor));
 				mat.SetFloat("_Specularity", config.Specularity);
 			}
 			else
@@ -193,8 +207,8 @@ namespace Better1911
 			mat.SetFloat("_Metal", config.Metallic);
 			mat.SetFloat("_BumpScale", config.NormalStrength);
 			mat.SetFloat("_Roughness", config.Roughness);
-			mat.SetColor("_Color", config.Recolor);
-			mat.SetFloat("_Specularity", config.Specularity);
+			mat.SetColor("_Color", Recolor(config.Recolor));
+			mat.SetFloat("_Specularity", config.Specularity);		
 		}
 
 		private static bool Better1911(FVRFireArm gun)
@@ -225,6 +239,17 @@ namespace Better1911
 			}
 			
 			return false;
+		}
+
+		// Format the human readable RGBA to what unity wants
+		private static Vector4 Recolor(Vector4 cfg)
+		{
+			return Recolor(cfg, 1f);
+		}
+		private static Vector4 Recolor(Vector4 cfg, float intensity)
+		{
+			var color = new Vector4(intensity * (cfg.x / 255), intensity * (cfg.y / 255), intensity * (cfg.z / 255), cfg.w / 1);
+			return color;
 		}
 
 		#endregion
