@@ -19,7 +19,7 @@ namespace Better1911.Configs
 			var c = new Vector4(255, 0, 0, 1);
 			RearColor = config.Bind(section, nameof(RearColor), c, "Color of the rear glow sights (RGBA)");
 			FrontColor = config.Bind(section, nameof(FrontColor), c, "Color of the front glow sight (RGBA)");
-			Intensity = config.Bind(section, nameof(Intensity), 1.0f, "Intensity of the glow. (0-4)");
+			Intensity = config.Bind(section, nameof(Intensity), 1.0f, "Intensity of the glow");
 		}
 	}
 }
