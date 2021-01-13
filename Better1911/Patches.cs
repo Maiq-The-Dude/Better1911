@@ -1,9 +1,8 @@
-﻿using FistVR;
-using HarmonyLib;
+﻿using BepInEx.Configuration;
 using Better1911.Configs;
+using FistVR;
+using HarmonyLib;
 using UnityEngine;
-using BepInEx.Configuration;
-using BepInEx.Logging;
 
 namespace Better1911
 {
@@ -52,13 +51,13 @@ namespace Better1911
 					}
 					else if (glowCfg.CustomColor.Value)
 					{
-						for(var i = 0; i < glowsights.Length; i++)
+						for (var i = 0; i < glowsights.Length; i++)
 						{
 							var mat = glowsights[i].GetComponent<Renderer>().material;
-							if(i == glowsights.Length-1)
+							if (i == glowsights.Length - 1)
 							{
 								mat.SetColor("_Color", Recolor(glowCfg.FrontColor.Value));
-								mat.SetColor("_EmissionColor", Recolor(glowCfg.FrontColor.Value, glowCfg.Intensity.Value));		
+								mat.SetColor("_EmissionColor", Recolor(glowCfg.FrontColor.Value, glowCfg.Intensity.Value));
 							}
 							else
 							{
@@ -67,13 +66,13 @@ namespace Better1911
 							}
 						}
 					}
-			
+
 					// Gun Materials
 					var gunCfg = Config.GunCustomization;
 					if (gunCfg.CustomMaterials.Value)
 					{
 						var gun = slideTF.parent;
-						
+
 						// Frame
 						var frameMat = gun.transform.Find("Frame").GetComponent<Renderer>().material;
 						var frameCfg = gunCfg.Frame;
@@ -99,7 +98,7 @@ namespace Better1911
 						}
 
 						PaintComponent(slideMat, slideCfg);
-					}				
+					}
 				}
 			}
 		}
@@ -159,7 +158,7 @@ namespace Better1911
 							}
 						}
 					}
-				}			
+				}
 			}
 		}
 
@@ -189,7 +188,7 @@ namespace Better1911
 			{
 				mat.SetFloat("_Metal", config.Metallic);
 				mat.SetFloat("_BumpScale", config.NormalStrength);
-				mat.SetColor("_Color", Recolor(config.Recolor));
+				mat.SetColor("_Color", Recolor(config.Recolor, config.RecolorIntensity));
 				mat.SetFloat("_Specularity", config.Specularity);
 			}
 			else
@@ -199,7 +198,7 @@ namespace Better1911
 					mat.SetTexture("_MainTex", null);
 				}
 				PaintComponent(mat, config);
-			}	
+			}
 		}
 
 		private static void PaintComponent(Material mat, IConfig config)
@@ -207,8 +206,8 @@ namespace Better1911
 			mat.SetFloat("_Metal", config.Metallic);
 			mat.SetFloat("_BumpScale", config.NormalStrength);
 			mat.SetFloat("_Roughness", config.Roughness);
-			mat.SetColor("_Color", Recolor(config.Recolor));
-			mat.SetFloat("_Specularity", config.Specularity);		
+			mat.SetColor("_Color", Recolor(config.Recolor, config.RecolorIntensity));
+			mat.SetFloat("_Specularity", config.Specularity);
 		}
 
 		private static bool Better1911(FVRFireArm gun)
@@ -226,7 +225,7 @@ namespace Better1911
 
 		private static bool FixPose(FVRFireArmMagazine mag)
 		{
-			if(Config.Magazine.FixMagPos.Value)
+			if (Config.Magazine.FixMagPos.Value)
 			{
 				var obj = mag.ObjectWrapper;
 				if (obj != null)
@@ -237,7 +236,7 @@ namespace Better1911
 					}
 				}
 			}
-			
+
 			return false;
 		}
 

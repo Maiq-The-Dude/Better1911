@@ -9,5 +9,6 @@ namespace Better1911
 		float Roughness { get; }
 		Vector4 Recolor { get; }
 		float Specularity { get; }
+		float RecolorIntensity { get; }
 	}
 }
