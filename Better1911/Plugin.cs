@@ -1,4 +1,4 @@
-﻿using Deli;
+﻿using Deli.Setup;
 using HarmonyLib;
 using Better1911.Configs;
 

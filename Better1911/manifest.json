@@ -1,15 +1,14 @@
 ﻿{
   "guid": "better1911",
-  "version": "1.2.0",
+  "version": "1.3.0",
+  "require": "0.3.0",
   "name": "Better1911",
+  "description": "Removes the red dot and adds numerous cosmetic enhancements to the M1911 Tactical.",
   "sourceUrl": "https://github.com/Maiq-The-Dude/Better1911",
-  "authors": [
-    "M'aiq"
-  ],
-  "dependencies": {
-    "deli.core": "0.2.5"
-  },
-  "runtime": {
-    "Better1911.dll": "assembly"
+  "authors": [ "M'aiq" ],
+  "assets": {
+    "setup": {
+      "Better1911.dll": "deli:assembly"
+    }
   }
 }
