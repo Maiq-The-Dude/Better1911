@@ -8,7 +8,7 @@ namespace Better1911.Configs
 
 		public FrameConfig Frame { get; }
 		public SlideConfig Slide { get; }
-		public GripsConfig Grips { get; }		
+		public GripsConfig Grips { get; }
 
 		public GunCustomizationConfig(string section, ConfigFile config)
 		{

@@ -13,7 +13,10 @@
   
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\Libs\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\libs\Assembly-CSharp_publicized.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>..\libs\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 

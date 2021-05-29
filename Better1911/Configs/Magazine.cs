@@ -6,6 +6,7 @@ namespace Better1911.Configs
 	{
 		public ConfigEntry<bool> FixMagPos { get; }
 		public ConfigEntry<MagazineMaterial> CustomMagazineMaterial { get; }
+
 		public MagazineConfig(string section, ConfigFile config)
 		{
 			FixMagPos = config.Bind(section, nameof(FixMagPos), true, "Attempts to fix the standard capacity magazine positions for M1911 Tactical & Operator");

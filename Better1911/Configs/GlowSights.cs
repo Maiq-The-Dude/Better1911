@@ -15,7 +15,7 @@ namespace Better1911.Configs
 		{
 			DisableGlowSights = config.Bind(section, nameof(DisableGlowSights), false, "Hide the glow sights");
 			CustomColor = config.Bind(section, nameof(CustomColor), false, "Enable custom coloring of the glow sights");
-			
+
 			var c = new Vector4(255, 0, 0, 1);
 			RearColor = config.Bind(section, nameof(RearColor), c, "Color of the rear glow sights (RGBA)");
 			FrontColor = config.Bind(section, nameof(FrontColor), c, "Color of the front glow sight (RGBA)");
