@@ -14,8 +14,9 @@ All features listed below are optional and can be altered via the config file
 
 ## Manual Installation
 Requires 
- - [BepInEx 5.4.x](https://github.com/BepInEx/BepInEx/releases)
- - [BepInEx.Monomod.HookGenPatcher](https://github.com/harbingerofme/Bepinex.Monomod.HookGenPatcher/releases)
+ - [BepInEx 5.4.x](https://github.com/BepInEx/BepInEx)
+ - [BepInEx.Monomod.Loader](https://github.com/BepInEx/BepInEx.MonoMod.Loader)
+ - [BepInEx.Monomod.HookGenPatcher](https://github.com/harbingerofme/Bepinex.Monomod.HookGenPatcher)
 
 Download and open [Better1911.zip](https://github.com/Maiq-The-Dude/Better1911/releases/latest), then drag `Better1911.dll` within into the `h3vr/bepinex/plugins/` directory
 
