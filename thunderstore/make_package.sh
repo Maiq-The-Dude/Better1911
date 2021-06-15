@@ -13,7 +13,7 @@ mkdir -p TEMP/Better1911/plugins
 cp manifest.json TEMP/manifest.json
 cp icon.png TEMP/icon.png
 cp ../README.md TEMP/README.md
-cp ../Better1911/Better1911/bin/Release/net35/Better1911.dll TEMP/Better1911/plugins/Better1911.dll
+cp ../src/Better1911/bin/Release/net35/Better1911.dll TEMP/Better1911/plugins/Better1911.dll
 
 # Modify the version number
 sed -i "s/{VERSION}/$VERSION/g" TEMP/manifest.json
