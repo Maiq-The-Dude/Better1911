@@ -1,0 +1,9 @@
+{
+    "name": "Better1911",
+    "version_number": "1.5.0",
+    "dependencies": [
+        "nrgill28-HookGenPatcher_H3VR-1.2.3"
+    ],
+    "description": "Removes the red dot and add numerous cosmetic enhancements to the M1911 Tactical.",
+    "website_url": "https://github.com/Maiq-The-Dude/Better1911"
+}

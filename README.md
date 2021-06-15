@@ -4,7 +4,7 @@
 Mod for H3VR to remove the red dot and add numerous cosmetic enhancements to the M1911 Tactical.
 
 ## Features
-All features listed below are optional and configured via `deli/configs/better1911.cfg`
+All features listed below are optional and can be altered via the config file
 - Remove the red dot
 - Fix low capacity magazine positioning
 - Disable glow sights
@@ -12,10 +12,10 @@ All features listed below are optional and configured via `deli/configs/better19
 - Modify roughness, normal strength, specularity, and color of the frame, slide, and grips
 - Match magazine material to either the custom frame or slide material
 
-## Installation
-Requires [BepInEx](https://github.com/BepInEx/BepInEx/releases/latest) and [Deli 0.3.x](https://github.com/Deli-Collective/Deli/releases).
+## Manual Installation
+Requires 
+ - [BepInEx 5.4.x](https://github.com/BepInEx/BepInEx/releases)
+ - [BepInEx.Monomod.HookGenPatcher](https://github.com/harbingerofme/Bepinex.Monomod.HookGenPatcher/releases).
 
-Download the [latest release of Better1911](https://github.com/Maiq-The-Dude/Better1911/releases/latest) and place `better1911.deli` it into your `h3vr/deli/mods` folder.
+Download the [latest release of Better1911](https://github.com/Maiq-The-Dude/Better1911/releases/latest) and extract the `.zip` into the BepInEx plugins folder.
 
-## Uninstallation
-Delete `better1911.deli` in the `h3vr/deli/mods` folder and `better1911.cfg` in the `h3vr/deli/configs` folder.

@@ -1,11 +1,13 @@
-﻿using Better1911.Configs;
-using Deli.Setup;
+﻿using BepInEx;
+using Better1911.Configs;
 using FistVR;
 using UnityEngine;
 
 namespace Better1911
 {
-	public class Plugin : DeliBehaviour
+	[BepInPlugin("maiq.Better1911", "Better1911", "1.5.0")]
+	[BepInProcess("h3vr.exe")]
+	public class Plugin : BaseUnityPlugin
 	{
 		private RootConfig _configs { get; }
 
@@ -42,7 +44,7 @@ namespace Better1911
 			orig(self);
 
 			var obj = self.Handgun.ObjectWrapper;
-			if (obj != null && obj.ItemID == _tacID)
+			if (obj?.ItemID == _tacID)
 			{
 				Config.Reload();
 				var slideTF = self.transform;
@@ -216,7 +218,7 @@ namespace Better1911
 			var obj = gun.ObjectWrapper;
 			if (obj != null)
 			{
-				return (obj.ItemID == _tacID || obj.ItemID == "M1911Operator");
+				return obj.ItemID == _tacID || obj.ItemID == "M1911Operator";
 			}
 
 			return false;
@@ -229,7 +231,7 @@ namespace Better1911
 				var obj = mag.ObjectWrapper;
 				if (obj != null)
 				{
-					return (mag.m_capacity <= 9);
+					return mag.m_capacity <= 9;
 				}
 			}
 
