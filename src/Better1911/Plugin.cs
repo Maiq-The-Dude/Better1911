@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Better1911
 {
-	[BepInPlugin("maiq.Better1911", "Better1911", "1.5.0")]
+	[BepInPlugin("maiq.Better1911", "Better1911", "1.5.1")]
 	[BepInProcess("h3vr.exe")]
 	public class Plugin : BaseUnityPlugin
 	{
@@ -173,14 +173,14 @@ namespace Better1911
 			}
 		}
 
-		private void FVRFireArmMagazine_Release(On.FistVR.FVRFireArmMagazine.orig_Release orig, FistVR.FVRFireArmMagazine self)
+		private void FVRFireArmMagazine_Release(On.FistVR.FVRFireArmMagazine.orig_Release orig, FVRFireArmMagazine self, bool PhysicalRelease)
 		{
 			if (Better1911(self.FireArm) && IsLowCapMag(self))
 			{
 				self.transform.localScale = new Vector3(1f, 1f, 1f);
 			}
 
-			orig(self);
+			orig(self, PhysicalRelease);
 		}
 
 		#region Helpers
