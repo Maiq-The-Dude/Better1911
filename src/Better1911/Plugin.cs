@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Better1911
 {
-	[BepInPlugin("maiq.Better1911", "Better1911", "1.5.1")]
+	[BepInPlugin("maiq.Better1911", "Better1911", "1.5.2")]
 	[BepInProcess("h3vr.exe")]
 	public class Plugin : BaseUnityPlugin
 	{
