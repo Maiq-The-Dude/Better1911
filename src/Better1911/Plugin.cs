@@ -23,14 +23,14 @@ namespace Better1911
 		private void Hook()
 		{
 			On.FistVR.HandgunSlide.Awake += HandgunSlide_Awake;
-			On.FistVR.FVRFireArmMagazine.Load += FVRFireArmMagazine_Load;
+            On.FistVR.FVRFireArmMagazine.Load_FVRFireArm += FVRFireArmMagazine_Load_FVRFireArm;
 			On.FistVR.FVRFireArmMagazine.Release += FVRFireArmMagazine_Release;
 		}
 
-		private void Unhook()
+        private void Unhook()
 		{
 			On.FistVR.HandgunSlide.Awake -= HandgunSlide_Awake;
-			On.FistVR.FVRFireArmMagazine.Load -= FVRFireArmMagazine_Load;
+			On.FistVR.FVRFireArmMagazine.Load_FVRFireArm += FVRFireArmMagazine_Load_FVRFireArm;
 			On.FistVR.FVRFireArmMagazine.Release -= FVRFireArmMagazine_Release;
 		}
 
@@ -116,7 +116,7 @@ namespace Better1911
 			}
 		}
 
-		private void FVRFireArmMagazine_Load(On.FistVR.FVRFireArmMagazine.orig_Load orig, FistVR.FVRFireArmMagazine self, FistVR.FVRFireArm fireArm)
+		private void FVRFireArmMagazine_Load_FVRFireArm(On.FistVR.FVRFireArmMagazine.orig_Load_FVRFireArm orig, FVRFireArmMagazine self, FVRFireArm fireArm)
 		{
 			orig(self, fireArm);
 
